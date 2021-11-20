@@ -42,7 +42,6 @@ namespace ReturnEngine
             this.Content = Content;
             ReturnEngine.RegisterEvent(this);
             Console.WriteLine("Event object {0} created!", Title);
-            //Console.WriteLine(Content);
         }
     }
 }

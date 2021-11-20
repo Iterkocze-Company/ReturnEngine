@@ -11,7 +11,8 @@ namespace ReturnEngine
         public static void Show()
         {
             Log.Info($"Gold: {Vault.Gold}");
-            Log.Info($"   Turn: {Turn.turn}");
+            Log.Info($"\tYour HP: {Vault.HP}");
+            Log.Info($"\tTurn: {Turn.turn}");
         }
     }
 }

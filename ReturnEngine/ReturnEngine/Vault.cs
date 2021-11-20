@@ -8,11 +8,7 @@ namespace ReturnEngine
 {
     public static class Vault
     {
-        //private static double gold = 0;
-
-        public static double Gold
-        {
-            get; set;
-        }
+        public static double Gold { get; set;}
+        public static double HP{ get; set; } = 100;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using ReturnEngine;
+using ReturnEngine.Enemy;
+using ReturnEngine.Player;
 
 namespace ReturnEngineDemoGame
 {
@@ -20,6 +22,8 @@ namespace ReturnEngineDemoGame
 
         public override void OnLoad()
         {
+            Stats.AttackPower = 2;
+
             Event e = new("Hello", "Type 'yes' to get 5 gold.");
             e.yield = Event.EventYield.GOLD;
             e.successMessage = "You got 5 gold!";
@@ -33,11 +37,23 @@ namespace ReturnEngineDemoGame
             x.success = true;
             x.automatic = true;
             x.successMessage = "You got 10 gold.";
+
+            Enemy enemy = new(10, 30, "Zombie");
+            if (enemy.Fight() == false)
+            {
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You ded.");
+                    Console.ReadKey();
+                }
+            }
         }
 
         public override void OnTurn()
         {
             Vault.Gold++;
+            if (Vault.HP < 100) Vault.HP++;
         }
     }
 }
